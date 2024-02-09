@@ -26,3 +26,10 @@ if __name__ == "__main__":
     repository_name = "hedphony"  # Your repository name
     num_to_keep = 5  # Number of image versions to keep
     delete_old_images(repository_name, num_to_keep)
+
+
+
+
+
+
+
