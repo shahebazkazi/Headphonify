@@ -36,7 +36,7 @@ def delete_old_images(repository_name, num_to_keep):
     else:
         print("No images to delete.")
 
-if _name_ == "_main_":
+if name == "_main_":
     repository_name = "hedphony"  # Your repository name
     num_to_keep = 10  # Number of image versions to keep
     # First, list all ECR images
