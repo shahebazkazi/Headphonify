@@ -3,6 +3,10 @@ def list_ecr_images(repository_name):
     client = boto3.client('ecr')
     response = client.describe_images(repositoryName=repository_name)
     return response['imageDetails']
+def print_ecr_images(repository_name):
+    images = list_ecr_images(repository_name)
+    for image in images:
+        print(f"Image Digest: {image['imageDigest']}, Image Tags: {image['imageTags'] if 'imageTags' in image else 'None'}")
 def delete_old_images(repository_name, num_to_keep):
     images = list_ecr_images(repository_name)
     images.sort(key=lambda x: x['imagePushedAt'], reverse=True)
@@ -24,12 +28,10 @@ def delete_old_images(repository_name, num_to_keep):
         print("No images to delete.")
 if __name__ == "__main__":
     repository_name = "hedphony"  # Your repository name
-    num_to_keep = 5  # Number of image versions to keep
+    num_to_keep = 10  # Number of image versions to keep
+    # First, list all ECR images
+    print("Listing all ECR images:")
+    print_ecr_images(repository_name)
+    # Then, delete old images to keep only the specified number of latest images
+    print("\nDeleting old images to keep only the latest", num_to_keep, "images:")
     delete_old_images(repository_name, num_to_keep)
-
-
-
-
-
-
-
