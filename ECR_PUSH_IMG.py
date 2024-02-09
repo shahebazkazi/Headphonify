@@ -8,29 +8,3 @@ def list_ecr_images(repository_name):
 if __name__ == "__main__":
     repository_name = "hedphony"  # Replace with your repository name
     list_ecr_images(repository_name)
-
-React
-
-Reply
-
-
-
-
-
-
-
-
-
-
-
-
-Message Ammar Shaikh
-
-
-
-
-
-
-
-
-
