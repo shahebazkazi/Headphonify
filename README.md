@@ -5,6 +5,6 @@ s
 s
 sssssss
 ss
-sss
+s
 
 sssaaa
