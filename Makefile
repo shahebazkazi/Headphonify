@@ -4,9 +4,6 @@ IMAGE_NAME = kazi
 TAG ?= latest  # Use TAG argument if provided, otherwise default to "latest"
 GIT_HASH ?= $(TAG)
 
-//make build TAG=mytag
-
-
 .PHONY: build
 build:
 	docker build -t $(IMAGE_NAME):$(TAG) .
