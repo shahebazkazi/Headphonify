@@ -4,6 +4,9 @@ IMAGE_NAME = kazi
 TAG ?= latest  # Use TAG argument if provided, otherwise default to "latest"
 GIT_HASH ?= $(TAG)
 
+make build TAG=mytag
+
+
 .PHONY: build
 build:
 	docker build -t $(IMAGE_NAME):$(TAG) .
@@ -23,3 +26,6 @@ login:
 .PHONY: push
 push: login tag
 	docker push $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(IMAGE_NAME):$(TAG)
+
+
+
