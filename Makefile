@@ -17,8 +17,8 @@ run:
 .PHONY: tag
 tag:
 	docker tag $(MS1):latest $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(MS1):$(GIT_HASH)
-        docker tag $(MS1):latest $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(MS2):$(GIT_HASH)
-        docker tag $(MS1):latest $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(MS3):$(GIT_HASH)
+        docker tag $(MS2):latest $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(MS2):$(GIT_HASH)
+        docker tag $(MS3):latest $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(MS3):$(GIT_HASH)
 	
 .PHONY: login
 login:
