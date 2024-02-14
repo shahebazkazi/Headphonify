@@ -1,8 +1,7 @@
 AWS_REGION = ap-south-1
 AWS_ACCOUNT_ID = 895471402311
-IMAGE_NAME = kazi
-TAG ?= latest  # Use TAG argument if provided, otherwise default to "latest"
-GIT_HASH ?= $(TAG)
+IMAGE_NAME = shahebaz
+TAG = "${BUILD_NUMBER}"
 
 .PHONY: build
 build:
