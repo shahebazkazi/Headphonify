@@ -1,8 +1,8 @@
 AWS_REGION = ap-south-1
 AWS_ACCOUNT_ID = 895471402311
 MS1 =  shahebaz
-MS2 =  
-MS3 =  
+MS2 =  ecrepo1
+MS3 =  ecrepo2
 
 GIT_HASH = $(TAG)
 
