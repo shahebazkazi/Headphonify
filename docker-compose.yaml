@@ -16,8 +16,8 @@ services:
     ports:
       - '3000:3000'
 
-  ecrepo1:
-    image: ecrepo1
+  ecrepo2:
+    image: ecrepo2
     build:
       context: .
       dockerfile: ./Dockerfile
