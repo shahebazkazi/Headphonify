@@ -1,0 +1,9 @@
+services:
+  shahebaz:
+    image: shahebaz
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      target: production
+    ports:
+      - '3000:3000'
