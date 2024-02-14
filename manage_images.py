@@ -27,7 +27,7 @@ def delete_old_images(repository_name, num_to_keep):
     else:
         print("No images to delete.")
 if __name__ == "__main__":
-    repository_name = "kazi"  # Your repository name
+    repository_name = "shahebaz"  # Your repository name
     num_to_keep = 2  # Number of image versions to keep
     # First, list all ECR images
     print("Listing all ECR images:")
