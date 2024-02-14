@@ -1,7 +1,7 @@
-AWS_REGION = ap-south-1
-AWS_ACCOUNT_ID = 895471402311
-IMAGE_NAME = shahebaz
-TAG = "${BUILD_NUMBER}"
+AWS_REGION := ap-south-1
+AWS_ACCOUNT_ID := 895471402311
+IMAGE_NAME := shahebaz
+TAG := ${BUILD_NUMBER}
 
 .PHONY: build
 build:
@@ -22,6 +22,3 @@ login:
 .PHONY: push
 push: login tag
 	docker push $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(IMAGE_NAME):$(TAG)
-
-
-
