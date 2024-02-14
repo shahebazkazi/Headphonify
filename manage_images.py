@@ -1,5 +1,11 @@
 import boto3
 
+def list_ecr_repositories():
+    client = boto3.client('ecr')
+    response = client.describe_repositories()
+    repositories = response['repositories']
+    return repositories
+
 def list_ecr_images(repository_name):
     client = boto3.client('ecr')
     response = client.describe_images(repositoryName=repository_name)
@@ -31,12 +37,20 @@ def delete_old_images(repository_name, num_to_keep):
         print("No images to delete.")
 
 if __name__ == "__main__":
-    repository_names = ["shahebaz", "ecrepo1", "ecrepo2"]  # List of repository names
+    # List all ECR repositories
+    print("Listing all ECR repositories:")
+    repositories = list_ecr_repositories()
+    for repo in repositories:
+        print(repo['repositoryName'])
+        # List all ECR images for each repository
+        print("\nListing all ECR images for repository:", repo['repositoryName'])
+        print_ecr_images(repo['repositoryName'])
+        print()  # Add a newline to separate outputs for each repository
+
+    # Specify the repository name and the number of image versions to keep
+    repository_name = "shahebaz"  # Your repository name
     num_to_keep = 2  # Number of image versions to keep
-    for repository_name in repository_names:
-        # First, list all ECR images for each repository
-        print(f"Listing all ECR images for repository {repository_name}:")
-        print_ecr_images(repository_name)
-        # Then, delete old images to keep only the specified number of latest images
-        print(f"\nDeleting old images for repository {repository_name} to keep only the latest {num_to_keep} images:")
-        delete_old_images(repository_name, num_to_keep)
+
+    # Then, delete old images to keep only the specified number of latest images
+    print("\nDeleting old images to keep only the latest", num_to_keep, "images:")
+    delete_old_images(repository_name, num_to_keep)
